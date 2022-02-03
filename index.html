@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        .text-center{
+           text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="content" onmouseup="countSelectionText()">
+        <h3 class="text-center">
+            Fitur menghitung jumlah karakter dengan HTML dan Javascript
+        </h3>
+    </div>
+    
+    <div id="info" class="text-center">
+        
+    </div>
+    <script>
+        const info = document.getElementById('info');
+
+        function countSelectionText(){
+            if(window.getSelection){
+                var string = window.getSelection().toString();
+
+                info.innerHTML = ' <h3>Text : <strong>' + string + '</strong> </h3></br>';
+                info.innerHTML += 'Total karakter <strong> :' + string.length + '</strong>';
+                info.classList.toggle("active");
+            }else{
+                info.classList.toggle("active");
+            }
+        }
+    </script>
+</body>
+</html>
